@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <!-- Dark background -->
+  <rect width="40" height="40" rx="10" fill="#0a0a0a"/>
+  <!-- 4-pointed star / crosshair point -->
+  <path d="M20 4L22.5 17.5L36 20L22.5 22.5L20 36L17.5 22.5L4 20L17.5 17.5Z" fill="#FF6B35"/>
+</svg>

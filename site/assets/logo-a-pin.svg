@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <!-- Pin: circle body + sharp downward point -->
+  <path d="M20 4C13.373 4 8 9.373 8 16C8 20.418 10.418 24.264 14 26.472L20 36L26 26.472C29.582 24.264 32 20.418 32 16C32 9.373 26.627 4 20 4Z" fill="#FF6B35"/>
+  <!-- Inner circle cutout -->
+  <circle cx="20" cy="16" r="5" fill="#0a0a0a"/>
+</svg>
