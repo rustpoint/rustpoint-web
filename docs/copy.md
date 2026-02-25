@@ -20,7 +20,7 @@ eyebrow: Product engineering studio
 
 h1: AI velocity. Human standards.
 
-sub: Software keeps getting worse. AI is changing the economics behind it.
+sub: Software keeps getting worse. AI changes the economics that cause it.
 ```
 
 ---
