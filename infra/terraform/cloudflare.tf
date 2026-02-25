@@ -111,7 +111,7 @@ resource "cloudflare_ruleset" "rustpoint_io_redirect" {
   rules = [{
     ref         = "redirect_io_to_ai"
     description = "Redirect all rustpoint.io traffic to rustpoint.ai"
-    expression  = "true"
+    expression  = "(http.host eq \"rustpoint.io\") or (http.host eq \"www.rustpoint.io\")"
     action      = "redirect"
     action_parameters = {
       from_value = {
