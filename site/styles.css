@@ -3,7 +3,7 @@
    Dark mode first, Inter font, Apple-adjacent aesthetics
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Young+Serif&display=swap');
 
 /* ---- Reset & Base ---------------------------------------- */
 
@@ -85,8 +85,9 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 600;
-  font-size: 1rem;
+  font-family: 'Young Serif', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
   color: var(--text);
   text-decoration: none;
 }
@@ -370,6 +371,95 @@ section {
   text-decoration: none;
 }
 
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---- Contact Form ------------------------------------- */
+
+.contact-form {
+  text-align: left;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: border-color 0.15s;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form .btn {
+  width: 100%;
+  justify-content: center;
+  border: none;
+}
+
+.form-status {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+}
+
+.form-status-ok {
+  color: #34d399;
+}
+
+.form-status-err {
+  color: #f87171;
+}
+
 /* ---- Footer ------------------------------------------- */
 
 footer {
@@ -408,117 +498,3 @@ footer {
   text-decoration: none;
 }
 
-/* ---- Inner Page Layout -------------------------------- */
-
-.page-header {
-  padding: 64px 0 40px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 56px;
-}
-
-.page-header .eyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-
-.page-header h1 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 12px;
-}
-
-.page-header .subtitle {
-  font-size: 1rem;
-  color: var(--text-muted);
-}
-
-.prose {
-  max-width: 680px;
-}
-
-.prose h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 40px 0 12px;
-  color: var(--text);
-}
-
-.prose h2:first-child {
-  margin-top: 0;
-}
-
-.prose p {
-  color: var(--text-muted);
-  line-height: 1.75;
-  margin-bottom: 16px;
-  font-size: 0.95rem;
-}
-
-.prose ul {
-  color: var(--text-muted);
-  padding-left: 20px;
-  margin-bottom: 16px;
-  font-size: 0.95rem;
-  line-height: 1.75;
-}
-
-.prose ul li {
-  margin-bottom: 6px;
-}
-
-.prose a {
-  color: var(--accent);
-}
-
-.prose .last-updated {
-  font-size: 0.825rem;
-  color: var(--text-dim);
-  margin-bottom: 48px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-/* ---- Support contact card ----------------------------- */
-
-.support-channels {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 32px 0 48px;
-}
-
-@media (max-width: 500px) {
-  .support-channels { grid-template-columns: 1fr; }
-}
-
-.support-channel {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-}
-
-.support-channel .ch-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-dim);
-  margin-bottom: 6px;
-}
-
-.support-channel .ch-value {
-  font-size: 0.95rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.support-channel .ch-value a {
-  color: var(--accent);
-}
