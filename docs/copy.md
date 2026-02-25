@@ -11,8 +11,6 @@ Audience: business leaders and technical executives first, app users second.
 Rustpoint
 ```
 
-Nav links: Privacy · Support
-
 ---
 
 ## Hero
