@@ -20,4 +20,5 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: b5c6b2c6ee3f781a634d029c2f481942
           command: pages deploy site --project-name rustpoint-web --commit-dirty=true
