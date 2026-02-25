@@ -18,7 +18,7 @@ Rustpoint
 ```
 eyebrow: Product engineering studio
 
-h1: AI-native software, shipped.
+h1: AI velocity. Human standards.
 
 sub: We build production-quality products using AI as a core
      engineering tool — faster, leaner, and without cutting corners.
