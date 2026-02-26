@@ -97,6 +97,52 @@ resource "cloudflare_dns_record" "rustpoint_ai_caa_letsencrypt" {
 }
 
 # ===========================================================
+# Email DNS: Resend domain verification for rustpoint.ai
+# Ref: Resend dashboard → Domains → rustpoint.ai
+# ===========================================================
+
+# DKIM signing key (Resend account-specific public key)
+resource "cloudflare_dns_record" "rustpoint_ai_resend_dkim" {
+  zone_id = var.rustpoint_ai_zone_id
+  name    = "resend._domainkey"
+  type    = "TXT"
+  content = "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDK5hOfrsYfHxtxIlx1LO0y5da0sYY71YmLm7eJJ4A/EpWewhGEaJn9OnZulZWbZirmaPwF5+MIR/ol7LMraFHkx7AmgDCIUjX/g9Ae10mLPmloGs03dMy1XUK48uwayP3hNuvkEVrES6/KEQ6kfp9O9Ab7RjtPOSNW07m2qinseQIDAQAB"
+  proxied = false
+  ttl     = 1
+}
+
+# MX: SES bounce/feedback routing for send.rustpoint.ai
+resource "cloudflare_dns_record" "rustpoint_ai_send_mx" {
+  zone_id  = var.rustpoint_ai_zone_id
+  name     = "send"
+  type     = "MX"
+  content  = "feedback-smtp.us-east-1.amazonses.com"
+  proxied  = false
+  ttl      = 1
+  priority = 10
+}
+
+# SPF: Authorize SES to send from send.rustpoint.ai
+resource "cloudflare_dns_record" "rustpoint_ai_send_spf" {
+  zone_id = var.rustpoint_ai_zone_id
+  name    = "send"
+  type    = "TXT"
+  content = "v=spf1 include:amazonses.com ~all"
+  proxied = false
+  ttl     = 1
+}
+
+# DMARC policy for rustpoint.ai
+resource "cloudflare_dns_record" "rustpoint_ai_dmarc" {
+  zone_id = var.rustpoint_ai_zone_id
+  name    = "_dmarc"
+  type    = "TXT"
+  content = "v=DMARC1; p=none;"
+  proxied = false
+  ttl     = 1
+}
+
+# ===========================================================
 # Redirect: rustpoint.io → rustpoint.ai (301)
 # Uses Cloudflare Ruleset (http_request_dynamic_redirect phase)
 # ===========================================================
